@@ -1,6 +1,7 @@
 //our-domain.com/
 import MeetupList from "../components/meetups/MeetupList";
 import Layout from "../components/layout/Layout";
+import { useEffect, useState } from "react";
 
 const DUMMY_MEETUPS = [
   {
@@ -28,7 +29,15 @@ const DUMMY_MEETUPS = [
   },
 ];
 
-function Homepage() {
-  return <MeetupList meetups={DUMMY_MEETUPS} />;
+function Homepage(props) {
+  return <MeetupList meetups={props.meetups} />;
+}
+export async function getStaticProps() {
+  //fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  }; //always return a object
 }
 export default Homepage;
