@@ -50,7 +50,7 @@ export async function getStaticProps() {
     props: {
       meetups: DUMMY_MEETUPS,
     },
-    revalidate: 10,
+    revalidate: 1,
   }; //always return a object
 }
 export default Homepage;
